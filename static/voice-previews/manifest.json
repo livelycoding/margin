@@ -1,0 +1,162 @@
+{
+  "text": "Take a moment to pause. A good story sounds different when you hear it aloud.",
+  "speed": 0.95,
+  "signature": "2eb17a0183d5e17664560ca06cde86874dfacf2e05e772533d62379ecc1e8d05",
+  "engine": {
+    "text": "Take a moment to pause. A good story sounds different when you hear it aloud.",
+    "speed": 0.95,
+    "sample_rate": 24000,
+    "format_version": 3,
+    "model": "kokoro-v1.0.onnx",
+    "voice_model": "voices-v1.0.bin",
+    "engine_version": "1.31.1",
+    "application_version": "2.0.0-go",
+    "go_version": "go1.27.3",
+    "architecture": "linux/amd64",
+    "engine_sources": {
+      "cmd/margin/previews.go": "e6002c0772d781bf2cef4cce155aef3add0d773f5b463c87074cc060fd27f38b",
+      "compiled-application": "31edbbbf8050b6555801a79358ef94f15ac49d696b2e2e6c9f3391b937b465bb",
+      "go.mod": "b68d11ffb3d9b984e540e140b4c0455f98c169983c064d41b480de6aa5ec1855",
+      "go.sum": "0c2e8d59ebd2dbb413c84afcffc7504e9d617bab7b47ef0e2367103ceea40996",
+      "internal/library/audio.go": "c90c7142a0033d7121c2ff9b6e1e4d403eac2f2865bf8eb03433020245bb1c75",
+      "internal/library/export.go": "292940a088044592584dad804457f4e60540fc906c0596b5cb5295dd2e27f669",
+      "internal/speech/assets.go": "8b7c02107406943d04806ddad436c415da3fdb1033803dc4434cbe771ac5d767",
+      "internal/speech/engine.go": "49a036c8edc0078686257d647219072cbfab36eb42fba5133357fac19ef76097",
+      "internal/speech/g2p.go": "0dbc0c1cfea3a6499cebe7dea52484aa880ad862c925f5218eb00750491a04db",
+      "internal/speech/normalize.go": "fd355745282df29aac7e270ff07b4495175d3bc65e074d19c1475d59e2f1d341",
+      "internal/speech/pronunciation.go": "6036c8f767536519a5412d8d68000c115c92b8107c7acbce1431c525b70cc542",
+      "internal/speech/runtime.go": "ac9967b8988da8f187c897fedbedefacacb0bb92492c945876e96a5152fbc9a6"
+    },
+    "pronunciation_assets": {
+      "LICENSE-Apache-2.0.txt": "c71d239df91726fc519c6eb72d318ec65820627232b2f796219e87dcf35d0ab4",
+      "PROVENANCE.json": "f026867b7e7cc04095c64a7aa0cdd3f38f0129262b19c60d3eaf0bbff9156ffc",
+      "README.md": "69e2c3b8d218ff9d9d0332c97888a0070b2995a209be850cf11f50f8cae9d6b0",
+      "g2p-gb.json": "3d09698d38145b94fc92fefabc661397aa478a2a682bde063aac6459f294d630",
+      "g2p-gb.onnx": "4dbd23e10d7b0ebfc56989724677462b7c352369dfdadf8f7dd526ddaf40c70b",
+      "g2p-us.json": "25099369360a6945ba1d64eadd1976ddbb3fe7c94fbb5b4b4efc5e5cf804f6b7",
+      "g2p-us.onnx": "8db6296406d56cf35b8ca528ca50c09b5fcef78bf805f99e3f7802e311359889",
+      "lexicon-gb-en.txt.gz": "23d793c877715fda4668219b1206eaa3a50a6d30a703f46cea2a830a72ec5819",
+      "lexicon-us-en.txt.gz": "2d816cfc5494d2ce170418a5921a952e08759d88bbc9f9ddfa9afcadb9df3f11",
+      "tokens.txt": "6ebb6bb288f20f3ae8d004d3c2ca27697da27c037d75e81a60e2a6a663f95425"
+    },
+    "models": {
+      "kokoro-v1.0.onnx": "beb0d1848dee9a49da392cc3df26958d46cfa35d321edf434f52949153f0df3a",
+      "voices-v1.0.bin": "bca610b8308e8d99f32e6fe4197e7ec01679264efed0cac9140fe9c29f1fbf7d"
+    },
+    "runtime_sha256": "a96f132e5eb5ca04e23a7d2fc1078fb95aa591e8d71d0f237702ece3a1e0f4ea"
+  },
+  "voices": {
+    "af_alloy": {
+      "duration": 4.74,
+      "filename": "af_alloy.wav"
+    },
+    "af_aoede": {
+      "duration": 3.98,
+      "filename": "af_aoede.wav"
+    },
+    "af_bella": {
+      "duration": 4.32,
+      "filename": "af_bella.wav"
+    },
+    "af_heart": {
+      "duration": 4.24,
+      "filename": "af_heart.wav"
+    },
+    "af_jessica": {
+      "duration": 3.94,
+      "filename": "af_jessica.wav"
+    },
+    "af_kore": {
+      "duration": 4.46,
+      "filename": "af_kore.wav"
+    },
+    "af_nicole": {
+      "duration": 6.46,
+      "filename": "af_nicole.wav"
+    },
+    "af_nova": {
+      "duration": 4.54,
+      "filename": "af_nova.wav"
+    },
+    "af_river": {
+      "duration": 4.12,
+      "filename": "af_river.wav"
+    },
+    "af_sarah": {
+      "duration": 4.16,
+      "filename": "af_sarah.wav"
+    },
+    "af_sky": {
+      "duration": 4.56,
+      "filename": "af_sky.wav"
+    },
+    "am_adam": {
+      "duration": 4.16,
+      "filename": "am_adam.wav"
+    },
+    "am_echo": {
+      "duration": 4.52,
+      "filename": "am_echo.wav"
+    },
+    "am_eric": {
+      "duration": 3.96,
+      "filename": "am_eric.wav"
+    },
+    "am_fenrir": {
+      "duration": 4.12,
+      "filename": "am_fenrir.wav"
+    },
+    "am_liam": {
+      "duration": 4.1,
+      "filename": "am_liam.wav"
+    },
+    "am_michael": {
+      "duration": 4.58,
+      "filename": "am_michael.wav"
+    },
+    "am_onyx": {
+      "duration": 4.58,
+      "filename": "am_onyx.wav"
+    },
+    "am_puck": {
+      "duration": 4.2,
+      "filename": "am_puck.wav"
+    },
+    "am_santa": {
+      "duration": 4.84,
+      "filename": "am_santa.wav"
+    },
+    "bf_alice": {
+      "duration": 4.54,
+      "filename": "bf_alice.wav"
+    },
+    "bf_emma": {
+      "duration": 4.18,
+      "filename": "bf_emma.wav"
+    },
+    "bf_isabella": {
+      "duration": 4.24,
+      "filename": "bf_isabella.wav"
+    },
+    "bf_lily": {
+      "duration": 4.46,
+      "filename": "bf_lily.wav"
+    },
+    "bm_daniel": {
+      "duration": 4.24,
+      "filename": "bm_daniel.wav"
+    },
+    "bm_fable": {
+      "duration": 4.78,
+      "filename": "bm_fable.wav"
+    },
+    "bm_george": {
+      "duration": 4.74,
+      "filename": "bm_george.wav"
+    },
+    "bm_lewis": {
+      "duration": 4.6,
+      "filename": "bm_lewis.wav"
+    }
+  }
+}

@@ -1,0 +1,16 @@
+# Example user service. Replace /absolute/path/to/margin in the installed copy.
+[Unit]
+Description=Margin local audio reader
+After=network-online.target
+
+[Service]
+Type=simple
+WorkingDirectory=/absolute/path/to/margin
+ExecStart="/absolute/path/to/margin/bin/margin" serve --app-dir "/absolute/path/to/margin" --host 127.0.0.1 --port 8765
+Restart=on-failure
+RestartSec=5
+TimeoutStopSec=45
+UMask=0077
+
+[Install]
+WantedBy=default.target

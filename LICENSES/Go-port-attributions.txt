@@ -1,0 +1,31 @@
+Go extraction ports and inherited data
+
+go-trafilatura v2.2.6
+Copyright (C) 2021 Markus Mobius
+Port of Trafilatura by Adrien Barbaresi, under Apache License 2.0.
+https://github.com/markusmobius/go-trafilatura/tree/v2.2.6
+https://github.com/adbar/trafilatura
+
+The bundled native readability-lxml fallback derives from the Apache-licensed
+Readability lineage: Arc90; Ruby port by starrhorne and iterationlabs; Python
+port by gfxmonk; timbertson/python-readability and buriy/python-readability
+contributors. Its Apache license is retained as readability-lxml-LICENSE.txt.
+https://github.com/buriy/python-readability
+No upstream article corpus or test-fixture dataset is shipped in Margin.
+
+go-htmldate v1.10.1
+Copyright (C) 2022 Markus Mobius
+Port of htmldate by Adrien Barbaresi, under Apache License 2.0.
+https://github.com/markusmobius/go-htmldate/tree/v1.10.1
+https://github.com/adbar/htmldate
+
+go-dateparser retains both Markus Mobius and Scrapinghub BSD notices.
+go-dateutil retains its dateutil Apache/BSD and CPython compatibility notices.
+These describe source ancestry of Go ports; no Python interpreter is linked.
+
+go-py3langid includes an embedded language-identification model under its
+BSD-3-Clause license, with credits to Marco Lui, Tim Baldwin, Adrien Barbaresi
+and Ilya Pyshkin. The Go implementation needs no Python or NumPy runtime.
+
+Unicode tables in uniseg, Go and golang.org/x/net and golang.org/x/text retain
+the Unicode copyright and permission notice in Unicode-3.0.txt.

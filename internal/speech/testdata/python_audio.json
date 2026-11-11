@@ -1,0 +1,18 @@
+[
+  {
+    "voice": "af_heart",
+    "text": "Hello, world.",
+    "speed": 0.95,
+    "sample_rate": 24000,
+    "samples": 31200,
+    "file": "af_heart.f32"
+  },
+  {
+    "voice": "bm_george",
+    "text": "Take a moment to pause.",
+    "speed": 0.95,
+    "sample_rate": 24000,
+    "samples": 45120,
+    "file": "bm_george.f32"
+  }
+]

@@ -1,0 +1,35 @@
+services:
+  margin:
+    image: ${MARGIN_IMAGE:-margin:local}
+    build:
+      context: .
+    init: true
+    restart: unless-stopped
+    ports:
+      - "${MARGIN_BIND_ADDRESS:-127.0.0.1}:${MARGIN_PORT:-8765}:8765"
+    environment:
+      MARGIN_PUBLIC_ORIGINS: >-
+        http://localhost:${MARGIN_PORT:-8765}
+        http://127.0.0.1:${MARGIN_PORT:-8765}
+        ${MARGIN_PUBLIC_ORIGINS:-}
+    volumes:
+      - margin-data:/var/lib/margin
+      - margin-cache:/var/cache/margin
+    read_only: true
+    tmpfs:
+      - /tmp:noexec,size=128m,mode=1777
+    cap_drop:
+      - ALL
+    security_opt:
+      - no-new-privileges:true
+    pids_limit: 128
+    stop_grace_period: 45s
+    logging:
+      driver: json-file
+      options:
+        max-size: "10m"
+        max-file: "3"
+
+volumes:
+  margin-data:
+  margin-cache:

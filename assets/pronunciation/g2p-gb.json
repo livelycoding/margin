@@ -1,0 +1,12 @@
+{
+  "format": 1,
+  "source": "PeterReid/graphemes_to_phonemes_en_gb",
+  "license": "Apache-2.0",
+  "graphemes": "____AIQWYabdfhijklmnpstuvwz'-.BCDEFGHJKLMNOPRSTUVXZcegoqrxy",
+  "phonemes": "____AIQWYabdfhijklmnpstuvwzðŋɑɒɔəɛɜɡɪɹʃʊʌʒʤʧˈˌːθᵊ",
+  "bos_id": 1,
+  "eos_id": 2,
+  "start_id": 1,
+  "unknown_id": 3,
+  "max_steps": 64
+}

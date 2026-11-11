@@ -1,0 +1,150 @@
+{
+  "description": "English pronunciation data for Margin: Apache-2.0 Misaki US/GB lexicons, Kokoro token vocabulary, and PeterReid neural G2P models. Exact sources and modifications are recorded below. No eSpeak or Phonemizer library or data is included.",
+  "license": "Apache-2.0",
+  "license_file": "LICENSE-Apache-2.0.txt",
+  "modifications": "Converted the original BART weights to an ONNX forward graph and extracted only the tokenizer configuration required for inference. Model weights were not retrained.",
+  "export_script": "tools/export_g2p.py",
+  "export_environment": {
+    "python": "3.12.14",
+    "torch": "2.5.1+cpu",
+    "transformers": "4.48.3",
+    "onnx": "1.17.0",
+    "numpy": "2.2.3",
+    "onnxruntime_validation": "1.23.1",
+    "onnx_opset": 17
+  },
+  "sources": {
+    "us": {
+      "repository": "https://huggingface.co/PeterReid/graphemes_to_phonemes_en_us",
+      "revision": "a5631b285d18d59483c32c0c3379cb9fac924f4b",
+      "license_evidence": "https://huggingface.co/PeterReid/graphemes_to_phonemes_en_us/blob/a5631b285d18d59483c32c0c3379cb9fac924f4b/README.md",
+      "source_files": {
+        "README.md": {
+          "url": "https://huggingface.co/PeterReid/graphemes_to_phonemes_en_us/resolve/a5631b285d18d59483c32c0c3379cb9fac924f4b/README.md",
+          "sha256": "4bcf87ecfbbb8e07a01b21415a970c8b53a5283bf6872b657040d3f45c9241f7"
+        },
+        "config.json": {
+          "url": "https://huggingface.co/PeterReid/graphemes_to_phonemes_en_us/resolve/a5631b285d18d59483c32c0c3379cb9fac924f4b/config.json",
+          "sha256": "8deb3537fb29c63cd9f20d75515ae06e4c92f1b6db0703a2d45bca95b33a53a4"
+        },
+        "generation_config.json": {
+          "url": "https://huggingface.co/PeterReid/graphemes_to_phonemes_en_us/resolve/a5631b285d18d59483c32c0c3379cb9fac924f4b/generation_config.json",
+          "sha256": "79a11240b01c6d34cab0b122b63a2b2dd5938c4d37d1530e14144d27e8ba6272"
+        },
+        "model.safetensors": {
+          "url": "https://huggingface.co/PeterReid/graphemes_to_phonemes_en_us/resolve/a5631b285d18d59483c32c0c3379cb9fac924f4b/model.safetensors",
+          "sha256": "dc4a02e62d4fcb4bb4097ecf00db89b8e1a12a549a52ab6adfbba220b80a55c5"
+        }
+      }
+    },
+    "gb": {
+      "repository": "https://huggingface.co/PeterReid/graphemes_to_phonemes_en_gb",
+      "revision": "d8357d5067fa26a5c34134d6bbcf4bbf000c0ac8",
+      "license_evidence": "https://huggingface.co/PeterReid/graphemes_to_phonemes_en_gb/blob/d8357d5067fa26a5c34134d6bbcf4bbf000c0ac8/README.md",
+      "source_files": {
+        "README.md": {
+          "url": "https://huggingface.co/PeterReid/graphemes_to_phonemes_en_gb/resolve/d8357d5067fa26a5c34134d6bbcf4bbf000c0ac8/README.md",
+          "sha256": "4bcf87ecfbbb8e07a01b21415a970c8b53a5283bf6872b657040d3f45c9241f7"
+        },
+        "config.json": {
+          "url": "https://huggingface.co/PeterReid/graphemes_to_phonemes_en_gb/resolve/d8357d5067fa26a5c34134d6bbcf4bbf000c0ac8/config.json",
+          "sha256": "e4f248e6af0cfb6cb54aea6ff0168d16b6f3cdabed438c487cde4ab0815d1bac"
+        },
+        "generation_config.json": {
+          "url": "https://huggingface.co/PeterReid/graphemes_to_phonemes_en_gb/resolve/d8357d5067fa26a5c34134d6bbcf4bbf000c0ac8/generation_config.json",
+          "sha256": "79a11240b01c6d34cab0b122b63a2b2dd5938c4d37d1530e14144d27e8ba6272"
+        },
+        "model.safetensors": {
+          "url": "https://huggingface.co/PeterReid/graphemes_to_phonemes_en_gb/resolve/d8357d5067fa26a5c34134d6bbcf4bbf000c0ac8/model.safetensors",
+          "sha256": "4994f474bb6f4584076a4e98189caaec11aa3f773a0d82d5bc263a03dd07e703"
+        }
+      }
+    },
+    "lexicons_and_tokens": {
+      "archive_url": "https://github.com/k2-fsa/sherpa-onnx/releases/download/tts-models/kokoro-multi-lang-v1_0.tar.bz2",
+      "archive_sha256": "60703707bc05ccd48d60e1eb723f38b07d6e474795a0b6a588d7220400e0f7a4",
+      "archive_bytes": 349886476,
+      "license": "Apache-2.0",
+      "archive_license_sha256": "cfc7749b96f63bd31c3c42b5c471bf756814053e847c10f3eb003417bc523d30",
+      "selected_members": {
+        "kokoro-multi-lang-v1_0/lexicon-us-en.txt": {
+          "sha256": "7daaab53a181be9885b853a8582bf1838186317e5dadacbcef9c426d6fa0da14"
+        },
+        "kokoro-multi-lang-v1_0/lexicon-gb-en.txt": {
+          "sha256": "c4cbb37316f62210dff52718a7afcaae24f50c032cc75ab47ae67b831d1049e7"
+        },
+        "kokoro-multi-lang-v1_0/tokens.txt": {
+          "sha256": "6ebb6bb288f20f3ae8d004d3c2ca27697da27c037d75e81a60e2a6a663f95425"
+        }
+      },
+      "excluded": "Every archive member other than the three selected files, including espeak-ng-data, libraries, Chinese data, model.onnx and voices.bin.",
+      "lexicon_origin": {
+        "project": "https://github.com/hexgrad/misaki",
+        "license_evidence": "https://github.com/hexgrad/misaki/blob/fba1236595f2d2bf21d414ba6e57d25256afada3/LICENSE",
+        "upstream_input_revision": "Not recorded by the archive producer; the archive and raw file digests pin the exact data included.",
+        "conversion_script": "https://github.com/k2-fsa/sherpa-onnx/blob/v2.0.1/scripts/kokoro/v1.0/generate_lexicon_en.py",
+        "data_download_script": "https://github.com/k2-fsa/sherpa-onnx/blob/v2.0.1/scripts/kokoro/v1.0/run.sh"
+      },
+      "tokens_origin": {
+        "project": "https://huggingface.co/hexgrad/Kokoro-82M",
+        "license_evidence": "https://huggingface.co/hexgrad/Kokoro-82M",
+        "conversion_script": "https://github.com/k2-fsa/sherpa-onnx/blob/v2.0.1/scripts/kokoro/v1.0/generate_tokens.py"
+      },
+      "modification": "Lossless gzip compression of lexicons only; token table unchanged.",
+      "rebuild_script": "tools/rebuild_pronunciation_lexicons.py",
+      "gzip": {
+        "level": 9,
+        "mtime": 0,
+        "filename": "",
+        "os_byte": 255,
+        "verified_python": "3.12.14",
+        "verified_zlib": "1.3.2"
+      }
+    }
+  },
+  "artifacts": {
+    "g2p-us.onnx": {
+      "bytes": 3121485,
+      "sha256": "8db6296406d56cf35b8ca528ca50c09b5fcef78bf805f99e3f7802e311359889"
+    },
+    "g2p-us.json": {
+      "bytes": 355,
+      "sha256": "25099369360a6945ba1d64eadd1976ddbb3fe7c94fbb5b4b4efc5e5cf804f6b7"
+    },
+    "g2p-gb.onnx": {
+      "bytes": 3121485,
+      "sha256": "4dbd23e10d7b0ebfc56989724677462b7c352369dfdadf8f7dd526ddaf40c70b"
+    },
+    "g2p-gb.json": {
+      "bytes": 351,
+      "sha256": "3d09698d38145b94fc92fefabc661397aa478a2a682bde063aac6459f294d630"
+    },
+    "lexicon-us-en.txt.gz": {
+      "bytes": 1405568,
+      "sha256": "2d816cfc5494d2ce170418a5921a952e08759d88bbc9f9ddfa9afcadb9df3f11"
+    },
+    "lexicon-gb-en.txt.gz": {
+      "bytes": 1505664,
+      "sha256": "23d793c877715fda4668219b1206eaa3a50a6d30a703f46cea2a830a72ec5819"
+    },
+    "tokens.txt": {
+      "bytes": 687,
+      "sha256": "6ebb6bb288f20f3ae8d004d3c2ca27697da27c037d75e81a60e2a6a663f95425"
+    }
+  },
+  "validation": {
+    "us": {
+      "words": 112,
+      "identical": 112,
+      "mismatches": [],
+      "seconds": 0.852
+    },
+    "gb": {
+      "words": 112,
+      "identical": 112,
+      "mismatches": [],
+      "seconds": 0.83
+    }
+  },
+  "known_limits": "English Latin-letter input only; learned fallback can mispronounce names and unfamiliar words. Decoding is bounded at 64 tokens. If it fails, the helper raises and the text frontend spells supported Latin-letter words aloud with a warning; unsupported text fails visibly. The parity check measures ONNX conversion fidelity, not pronunciation accuracy."
+}

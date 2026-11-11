@@ -1,0 +1,446 @@
+[
+  {
+    "text": "Dr. Chen paid $1,234.50, then £0.01: 12.5% on the 21st.",
+    "british": false,
+    "normalized": "doctor Chen paid one thousand two hundred and thirty four dollars and fifty cents, then one penny: twelve point five percent on the twenty first.",
+    "phonemes": "dˈɑktəɹ ʧˈɛn pˈAd wˈʌn θˈWzᵊnd tˈu hˈʌndɹəd ænd θˈɜɹTi fˈɔɹ dˈɑləɹz ænd fˈɪfti sˈɛnts, ðˈɛn wˈʌn pˈɛni: twˈɛlv pˈYnt fˈIv pəɹsˈɛnt ˌɔn ðə twˈɛnti fˈɜɹst."
+  },
+  {
+    "text": "I am 42. Meet at 2:30 p.m.; then 7 AM.",
+    "british": false,
+    "normalized": "I am forty two . Meet at two thirty PM; then seven o'clock AM.",
+    "phonemes": "ˈI æm fˈɔɹTi tˈu . mˈit æt tˈu θˈɜɹTi pˈi ˈɛm; ðˈɛn sˈɛvən əklˈɑk ˈA ˈɛm."
+  },
+  {
+    "text": "The U.S.A. uses GPT-4, API2, and room 007.",
+    "british": false,
+    "normalized": "The USA uses GPT four , API two , and room zero zero seven .",
+    "phonemes": "ðə jˈu ˈɛs ˈA jˈuzᵻz ʤˈi pˈi tˈi fˈɔɹ , ˈA pˈi ˈI tˈu , ænd ɹˈum zˈɪɹO zˈɪɹO sˈɛvən ."
+  },
+  {
+    "text": "It is -3.5, +2, etc.",
+    "british": false,
+    "normalized": "It is minus three point five , plus two , et cetera.",
+    "phonemes": "ɪt ɪz mˈInəs θɹˈi pˈYnt fˈIv , plˈʌs tˈu , ˈɛt sˈɛTəɹə."
+  },
+  {
+    "text": "It’s a café — don’t worry.",
+    "british": false,
+    "normalized": "It's a café — don't worry.",
+    "phonemes": "ɪts ə kæfˈA — dˈOnt wˈɜɹi."
+  },
+  {
+    "text": "35°C, 1 kg, 10 km², and $-1.20.",
+    "british": false,
+    "normalized": "thirty five degrees Celsius, one kilogram, ten square kilometers, and minus one dollar and twenty cents.",
+    "phonemes": "θˈɜɹTi fˈIv dəɡɹˈiz sˈɛlsiəs, wˈʌn kˈɪləɡɹˌæm, tˈɛn skwˈɛɹ kˈɪləmˌiTəɹz, ænd mˈInəs wˈʌn dˈɑləɹ ænd twˈɛnti sˈɛnts."
+  },
+  {
+    "text": "Don't worry, you're home!",
+    "british": false,
+    "normalized": "Don't worry, you're home!",
+    "phonemes": "dˈOnt wˈɜɹi, jʊɹ hˈOm!"
+  },
+  {
+    "text": "A book. The book. The apple.",
+    "british": false,
+    "normalized": "A book. The book. The apple.",
+    "phonemes": "ə bˈʊk. ðə bˈʊk. ði ˈæpᵊl."
+  },
+  {
+    "text": "API US us NASA U.S.A. https",
+    "british": false,
+    "normalized": "API US us NASA USA https",
+    "phonemes": "ˈA pˈi ˈI jˈu ˈɛs ˌʌs nˈæsə jˈu ˈɛs ˈA ˈAʧ tˈi tˈi pˈi ˈɛs"
+  },
+  {
+    "text": "Hello quizzacious, goodbye.",
+    "british": false,
+    "normalized": "Hello quizzacious, goodbye.",
+    "phonemes": "həlˈO kwɪzˈAʃəs, ɡˌʊdbˈI."
+  },
+  {
+    "text": "Quizzacious's book.",
+    "british": false,
+    "normalized": "Quizzacious's book.",
+    "phonemes": "kwɪzˈAʃəsᵻz bˈʊk."
+  },
+  {
+    "text": "I live here. A live show.",
+    "british": false,
+    "normalized": "I live here. A live show.",
+    "phonemes": "ˈI lˈɪv hˈɪɹ. ə lˈIv ʃˈO."
+  },
+  {
+    "text": "Please record this. A record spins.",
+    "british": false,
+    "normalized": "Please record this. A record spins.",
+    "phonemes": "plˈiz ɹəkˈɔɹd ðɪs. ə ɹˈɛkəɹd spˈɪnz."
+  },
+  {
+    "text": "I have read it. We read yesterday.",
+    "british": false,
+    "normalized": "I have read it. We read yesterday.",
+    "phonemes": "ˈI hæv ɹˈɛd ɪt. wi ɹˈɛd jˈɛstəɹdˌA."
+  },
+  {
+    "text": "The lead pipe. Please close it. Wind the clock.",
+    "british": false,
+    "normalized": "The lead pipe. Please close it. Wind the clock.",
+    "phonemes": "ðə lˈɛd pˈIp. plˈiz klˈOz ɪt. wˈInd ðə klˈɑk."
+  },
+  {
+    "text": "AI at 9:05 a.m. on November 9th, 2026.",
+    "british": false,
+    "normalized": "AI at nine oh five AM on November ninth, two thousand and twenty six .",
+    "phonemes": "ˈA ˈI æt nˈIn ˈO fˈIv ˈA ˈɛm ˌɔn nOvˈɛmbəɹ nˈInθ, tˈu θˈWzᵊnd ænd twˈɛnti sˈɪks ."
+  },
+  {
+    "text": "€23.004 and ¥1,000 cost £1.01 or $0.50.",
+    "british": false,
+    "normalized": "twenty three point zero zero four euros and one thousand yen cost one pound and one penny or fifty cents.",
+    "phonemes": "twˈɛnti θɹˈi pˈYnt zˈɪɹO zˈɪɹO fˈɔɹ jˈʊɹOz ænd wˈʌn θˈWzᵊnd jˈɛn kˈɔst wˈʌn pˈWnd ænd wˈʌn pˈɛni ɔɹ fˈɪfti sˈɛnts."
+  },
+  {
+    "text": "We drove 1 km/h, 10 km, 20 cm, 2 mm and 3 m³.",
+    "british": false,
+    "normalized": "We drove one kilometer per hour, ten kilometers, twenty centimeters, two millimeters and three cubic meters.",
+    "phonemes": "wi dɹˈOv wˈʌn kəlˈɑməTəɹ pɜɹ ˈWəɹ, tˈɛn kˈɪləmˌiTəɹz, twˈɛnti sˈɛntəmˌiTəɹz, tˈu mˈɪləmˌiTəɹz ænd θɹˈi kjˈubɪk mˈiTəɹz."
+  },
+  {
+    "text": "There are 1000, 1001, 1100, 1101, and 1000001 words.",
+    "british": false,
+    "normalized": "There are one thousand , one thousand and one , one thousand one hundred , one thousand one hundred and one , and one million and one words.",
+    "phonemes": "ðɛɹ ɑɹ wˈʌn θˈWzᵊnd , wˈʌn θˈWzᵊnd ænd wˈʌn , wˈʌn θˈWzᵊnd wˈʌn hˈʌndɹəd , wˈʌn θˈWzᵊnd wˈʌn hˈʌndɹəd ænd wˈʌn , ænd wˈʌn mˈɪljᵊn ænd wˈʌn wˈɜɹdz."
+  },
+  {
+    "text": "The 1st, 2nd, 3rd, 8th, 9th, 12th, 20th, 21st, 100th, and 1001st.",
+    "british": false,
+    "normalized": "The first, second, third, eighth, ninth, twelfth, twentieth, twenty first, one hundredth, and one thousand and first.",
+    "phonemes": "ðə fˈɜɹst, sˈɛkənd, θˈɜɹd, ˈAθ, nˈInθ, twˈɛlfθ, twˈɛntiəθ, twˈɛnti fˈɜɹst, wˈʌn hˈʌndɹədθ, ænd wˈʌn θˈWzᵊnd ænd fˈɜɹst."
+  },
+  {
+    "text": "Call me at 00:00 or 23:59; not 25:61.",
+    "british": false,
+    "normalized": "Call me at zero zero o'clock or twenty three fifty nine; not twenty five : sixty one .",
+    "phonemes": "kˈɔl mˌi æt zˈɪɹO zˈɪɹO əklˈɑk ɔɹ twˈɛnti θɹˈi fˈɪfti nˈIn; nˌɑt twˈɛnti fˈIv : sˈɪksti wˈʌn ."
+  },
+  {
+    "text": "A good story sounds different when you hear it aloud.",
+    "british": false,
+    "normalized": "A good story sounds different when you hear it aloud.",
+    "phonemes": "ə ɡˈʊd stˈɔɹi sˈWndz dˈɪfəɹənt wˌɛn ju hˈɪɹ ɪt əlˈWd."
+  },
+  {
+    "text": "On Saturday morning, the streets were quiet, and the café had just opened.",
+    "british": false,
+    "normalized": "On Saturday morning, the streets were quiet, and the café had just opened.",
+    "phonemes": "ˌɔn sˈæTəɹdˌA mˈɔɹnɪŋ, ðə stɹˈits wɜɹ kwˈIət, ænd ðə kæfˈA hæd ʤˈʌst ˈOpᵊnd."
+  },
+  {
+    "text": "Dr. Maya Chen published a new article on Substack.",
+    "british": false,
+    "normalized": "doctor Maya Chen published a new article on Substack.",
+    "phonemes": "dˈɑktəɹ mˈIə ʧˈɛn pˈʌblɪʃt ə nˈu ˈɑɹTəkᵊl ˌɔn sˈʌbstˌæk."
+  },
+  {
+    "text": "Our API uses Tailscale and PostgreSQL.",
+    "british": false,
+    "normalized": "Our API uses Tailscale and PostgreSQL.",
+    "phonemes": "ˌWəɹ ˈA pˈi ˈI jˈuzᵻz tˈAlskˌAl ænd pˈOstɡəɹ sˈikwəl."
+  },
+  {
+    "text": "José asked, “Can I listen offline?” Yes, you can.",
+    "british": false,
+    "normalized": "José asked, “Can I listen offline?” Yes, you can.",
+    "phonemes": "ʤˈOz ˈæskt, “kæn ˈI lˈɪsᵊn ˌɔflˈIn?” jˈɛs, ju kæn."
+  },
+  {
+    "text": "Keep the original text, choose a voice, and listen at your own pace.",
+    "british": false,
+    "normalized": "Keep the original text, choose a voice, and listen at your own pace.",
+    "phonemes": "kˈip ði əɹˈɪʤənᵊl tˈɛkst, ʧˈuz ə vˈYs, ænd lˈɪsᵊn æt jʊɹ ˈOn pˈAs."
+  },
+  {
+    "text": "Snow ☃ plus © and 😀.",
+    "british": false,
+    "normalized": "Snow ☃ plus © and 😀.",
+    "phonemes": "snˈO snˈOmˌæn plˈʌs kˈɑpiɹˌIt sˈIn ænd ɡɹˈɪnɪŋ fˈAs ."
+  },
+  {
+    "text": "Dr. Mr. Mrs. Ms. Prof. Sr. Jr. vs. etc.",
+    "british": false,
+    "normalized": "doctor mister missus miz professor senior junior versus et cetera.",
+    "phonemes": "dˈɑktəɹ mˈɪstəɹ mˈɪsəz mˈɪz pɹəfˈɛsəɹ sˈinjəɹ ʤˈunjəɹ vˈɜɹsəs ˈɛt sˈɛTəɹə."
+  },
+  {
+    "text": "e.g. one; i.e. two.",
+    "british": false,
+    "normalized": "for example one; that is two.",
+    "phonemes": "fɔɹ ɪɡzˈæmpəl wˈʌn; ðæt ɪz tˈu."
+  },
+  {
+    "text": "The CPU's results go to the UI and the HTML page.",
+    "british": false,
+    "normalized": "The CPU's results go to the UI and the HTML page.",
+    "phonemes": "ðə sˈi pˈi jˈuz ɹᵻsˈʌlts ɡˌO tə ðə jˈu ˈI ænd ði ˈAʧ tˈi ˈɛm ˈɛl pˈAʤ."
+  },
+  {
+    "text": "12345678901234567890123456789012345678",
+    "british": false,
+    "normalized": "one two three four five six seven eight nine zero one two three four five six seven eight nine zero one two three four five six seven eight nine zero one two three four five six seven eight",
+    "phonemes": "wˈʌn tˈu θɹˈi fˈɔɹ fˈIv sˈɪks sˈɛvən ˈAt nˈIn zˈɪɹO wˈʌn tˈu θɹˈi fˈɔɹ fˈIv sˈɪks sˈɛvən ˈAt nˈIn zˈɪɹO wˈʌn tˈu θɹˈi fˈɔɹ fˈIv sˈɪks sˈɛvən ˈAt nˈIn zˈɪɹO wˈʌn tˈu θɹˈi fˈɔɹ fˈIv sˈɪks sˈɛvən ˈAt"
+  },
+  {
+    "text": "012345 and 1.00 and 0.05.",
+    "british": false,
+    "normalized": "zero one two three four five and one point zero zero and zero point zero five .",
+    "phonemes": "zˈɪɹO wˈʌn tˈu θɹˈi fˈɔɹ fˈIv ænd wˈʌn pˈYnt zˈɪɹO zˈɪɹO ænd zˈɪɹO pˈYnt zˈɪɹO fˈIv ."
+  },
+  {
+    "text": "35°F and 2.4% equals 7.6.",
+    "british": false,
+    "normalized": "thirty five degrees Fahrenheit and two point four percent equals seven point six .",
+    "phonemes": "θˈɜɹTi fˈIv dəɡɹˈiz fˈɛɹənhˌIt ænd tˈu pˈYnt fˈɔɹ pəɹsˈɛnt ˈikwᵊlz sˈɛvən pˈYnt sˈɪks ."
+  },
+  {
+    "text": "123abc and 3 meters; 3mail stays as written.",
+    "british": false,
+    "normalized": "one hundred and twenty three abc and three meters; three mail stays as written.",
+    "phonemes": "wˈʌn hˈʌndɹəd ænd twˈɛnti θɹˈi ˈæbk ænd θɹˈi mˈiTəɹz; θɹˈi mˈAl stˈAz æz ɹˈɪtn."
+  },
+  {
+    "text": "Dr. Chen paid $1,234.50, then £0.01: 12.5% on the 21st.",
+    "british": true,
+    "normalized": "doctor Chen paid one thousand two hundred and thirty four dollars and fifty cents, then one penny: twelve point five percent on the twenty first.",
+    "phonemes": "dˈɒktə ʧˈɛn pˈAd wˈʌn θˈWzᵊnd tˈuː hˈʌndɹəd and θˈɜːti fˈɔː dˈɒləz and fˈɪfti sˈɛnts, ðˈɛn wˈʌn pˈɛni: twˈɛlv pˈYnt fˈIv pəsˈɛnt ˌɒn ðə twˈɛnti fˈɜːst."
+  },
+  {
+    "text": "I am 42. Meet at 2:30 p.m.; then 7 AM.",
+    "british": true,
+    "normalized": "I am forty two . Meet at two thirty PM; then seven o'clock AM.",
+    "phonemes": "ˈI am fˈɔːti tˈuː . mˈiːt at tˈuː θˈɜːti pˈiː ˈɛm; ðˈɛn sˈɛvᵊn əklˈɒk A ˈɛm."
+  },
+  {
+    "text": "The U.S.A. uses GPT-4, API2, and room 007.",
+    "british": true,
+    "normalized": "The USA uses GPT four , API two , and room zero zero seven .",
+    "phonemes": "ðə jˈuː ˈɛs A jˈuːzɪz ʤˈiː pˈiː tˈiː fˈɔː , A pˈiː ˈI tˈuː , and ɹˈuːm zˈɪəɹQ zˈɪəɹQ sˈɛvᵊn ."
+  },
+  {
+    "text": "It is -3.5, +2, etc.",
+    "british": true,
+    "normalized": "It is minus three point five , plus two , et cetera.",
+    "phonemes": "ɪt ɪz mˈInəs θɹˈiː pˈYnt fˈIv , plˈʌs tˈuː , ˈɛt sɪtˈɛːɹə."
+  },
+  {
+    "text": "It’s a café — don’t worry.",
+    "british": true,
+    "normalized": "It's a café — don't worry.",
+    "phonemes": "ɪts ə kˈafA — dˈQnt wˈʌɹi."
+  },
+  {
+    "text": "35°C, 1 kg, 10 km², and $-1.20.",
+    "british": true,
+    "normalized": "thirty five degrees Celsius, one kilogram, ten square kilometers, and minus one dollar and twenty cents.",
+    "phonemes": "θˈɜːti fˈIv dɪɡɹˈiːz sˈɛlsɪəs, wˈʌn kˈɪləɡɹam, tˈɛn skwˈɛː kˈɪləmˌiːtəz, and mˈInəs wˈʌn dˈɒlə and twˈɛnti sˈɛnts."
+  },
+  {
+    "text": "Don't worry, you're home!",
+    "british": true,
+    "normalized": "Don't worry, you're home!",
+    "phonemes": "dˈQnt wˈʌɹi, jɔː hˈQm!"
+  },
+  {
+    "text": "A book. The book. The apple.",
+    "british": true,
+    "normalized": "A book. The book. The apple.",
+    "phonemes": "ə bˈʊk. ðə bˈʊk. ði ˈapᵊl."
+  },
+  {
+    "text": "API US us NASA U.S.A. https",
+    "british": true,
+    "normalized": "API US us NASA USA https",
+    "phonemes": "A pˈiː ˈI jˈuː ˈɛs ˌʌs nˈasə jˈuː ˈɛs A ˈAʧ tˈiː tˈiː pˈiː ˈɛs"
+  },
+  {
+    "text": "Hello quizzacious, goodbye.",
+    "british": true,
+    "normalized": "Hello quizzacious, goodbye.",
+    "phonemes": "həlˈQ kwɪzˈAʃəs, ɡʊdbˈI."
+  },
+  {
+    "text": "Quizzacious's book.",
+    "british": true,
+    "normalized": "Quizzacious's book.",
+    "phonemes": "kwɪzˈAʃəsɪz bˈʊk."
+  },
+  {
+    "text": "I live here. A live show.",
+    "british": true,
+    "normalized": "I live here. A live show.",
+    "phonemes": "ˈI lˈɪv hˈɪə. ə lˈIv ʃˈQ."
+  },
+  {
+    "text": "Please record this. A record spins.",
+    "british": true,
+    "normalized": "Please record this. A record spins.",
+    "phonemes": "plˈiːz ɹɪkˈɔːd ðɪs. ə ɹˈɛkɔːd spˈɪnz."
+  },
+  {
+    "text": "I have read it. We read yesterday.",
+    "british": true,
+    "normalized": "I have read it. We read yesterday.",
+    "phonemes": "ˈI hav ɹˈɛd ɪt. wiː ɹˈɛd jˈɛstədA."
+  },
+  {
+    "text": "The lead pipe. Please close it. Wind the clock.",
+    "british": true,
+    "normalized": "The lead pipe. Please close it. Wind the clock.",
+    "phonemes": "ðə lˈɛd pˈIp. plˈiːz klˈQz ɪt. wˈInd ðə klˈɒk."
+  },
+  {
+    "text": "AI at 9:05 a.m. on November 9th, 2026.",
+    "british": true,
+    "normalized": "AI at nine oh five AM on November ninth, two thousand and twenty six .",
+    "phonemes": "A ˈI at nˈIn ˈQ fˈIv A ˈɛm ˌɒn nQvˈɛmbə nˈInθ, tˈuː θˈWzᵊnd and twˈɛnti sˈɪks ."
+  },
+  {
+    "text": "€23.004 and ¥1,000 cost £1.01 or $0.50.",
+    "british": true,
+    "normalized": "twenty three point zero zero four euros and one thousand yen cost one pound and one penny or fifty cents.",
+    "phonemes": "twˈɛnti θɹˈiː pˈYnt zˈɪəɹQ zˈɪəɹQ fˈɔː jˈʊəɹQz and wˈʌn θˈWzᵊnd jˈɛn kˈɒst wˈʌn pˈWnd and wˈʌn pˈɛni ɔː fˈɪfti sˈɛnts."
+  },
+  {
+    "text": "We drove 1 km/h, 10 km, 20 cm, 2 mm and 3 m³.",
+    "british": true,
+    "normalized": "We drove one kilometer per hour, ten kilometers, twenty centimeters, two millimeters and three cubic meters.",
+    "phonemes": "wiː dɹˈQv wˈʌn kˈɪləmˌiːtə pɜː ˈWə, tˈɛn kˈɪləmˌiːtəz, twˈɛnti sˈɛntɪmˌiːtəz, tˈuː mˈɪlɪmˌiːtəz and θɹˈiː kjˈuːbɪk mˈiːtəz."
+  },
+  {
+    "text": "There are 1000, 1001, 1100, 1101, and 1000001 words.",
+    "british": true,
+    "normalized": "There are one thousand , one thousand and one , one thousand one hundred , one thousand one hundred and one , and one million and one words.",
+    "phonemes": "ðɛː ɑː wˈʌn θˈWzᵊnd , wˈʌn θˈWzᵊnd and wˈʌn , wˈʌn θˈWzᵊnd wˈʌn hˈʌndɹəd , wˈʌn θˈWzᵊnd wˈʌn hˈʌndɹəd and wˈʌn , and wˈʌn mˈɪljən and wˈʌn wˈɜːdz."
+  },
+  {
+    "text": "The 1st, 2nd, 3rd, 8th, 9th, 12th, 20th, 21st, 100th, and 1001st.",
+    "british": true,
+    "normalized": "The first, second, third, eighth, ninth, twelfth, twentieth, twenty first, one hundredth, and one thousand and first.",
+    "phonemes": "ðə fˈɜːst, sˈɛkᵊnd, θˈɜːd, ˈAtθ, nˈInθ, twˈɛlfθ, twˈɛntiɪθ, twˈɛnti fˈɜːst, wˈʌn hˈʌndɹədθ, and wˈʌn θˈWzᵊnd and fˈɜːst."
+  },
+  {
+    "text": "Call me at 00:00 or 23:59; not 25:61.",
+    "british": true,
+    "normalized": "Call me at zero zero o'clock or twenty three fifty nine; not twenty five : sixty one .",
+    "phonemes": "kˈɔːl mˌiː at zˈɪəɹQ zˈɪəɹQ əklˈɒk ɔː twˈɛnti θɹˈiː fˈɪfti nˈIn; nˌɒt twˈɛnti fˈIv : sˈɪksti wˈʌn ."
+  },
+  {
+    "text": "A good story sounds different when you hear it aloud.",
+    "british": true,
+    "normalized": "A good story sounds different when you hear it aloud.",
+    "phonemes": "ə ɡˈʊd stˈɔːɹi sˈWndz dˈɪfəɹənt wˌɛn juː hˈɪə ɪt əlˈWd."
+  },
+  {
+    "text": "On Saturday morning, the streets were quiet, and the café had just opened.",
+    "british": true,
+    "normalized": "On Saturday morning, the streets were quiet, and the café had just opened.",
+    "phonemes": "ˌɒn sˈatədA mˈɔːnɪŋ, ðə stɹˈiːts wɜː kwˈIət, and ðə kˈafA had ʤˈʌst ˈQpᵊnd."
+  },
+  {
+    "text": "Dr. Maya Chen published a new article on Substack.",
+    "british": true,
+    "normalized": "doctor Maya Chen published a new article on Substack.",
+    "phonemes": "dˈɒktə mˈIə ʧˈɛn pˈʌblɪʃt ə njˈuː ˈɑːtɪkᵊl ˌɒn sˈʌbstak."
+  },
+  {
+    "text": "Our API uses Tailscale and PostgreSQL.",
+    "british": true,
+    "normalized": "Our API uses Tailscale and PostgreSQL.",
+    "phonemes": "ˌWə A pˈiː ˈI jˈuːzɪz tˈAlskAl and pˈQstɡɹə sˈiːkwᵊl."
+  },
+  {
+    "text": "José asked, “Can I listen offline?” Yes, you can.",
+    "british": true,
+    "normalized": "José asked, “Can I listen offline?” Yes, you can.",
+    "phonemes": "ʤˈQz ˈaskt, “kan ˈI lˈɪsᵊn ɒflˈIn?” jˈɛs, juː kan."
+  },
+  {
+    "text": "Keep the original text, choose a voice, and listen at your own pace.",
+    "british": true,
+    "normalized": "Keep the original text, choose a voice, and listen at your own pace.",
+    "phonemes": "kˈiːp ði əɹˈɪʤənᵊl tˈɛkst, ʧˈuːz ə vˈYs, and lˈɪsᵊn at jɔː ˈQn pˈAs."
+  },
+  {
+    "text": "Snow ☃ plus © and 😀.",
+    "british": true,
+    "normalized": "Snow ☃ plus © and 😀.",
+    "phonemes": "snˈQ snˈQman plˈʌs kˈɒpɪɹIt sˈIn and ɡɹˈɪnɪŋ fˈAs ."
+  },
+  {
+    "text": "Dr. Mr. Mrs. Ms. Prof. Sr. Jr. vs. etc.",
+    "british": true,
+    "normalized": "doctor mister missus miz professor senior junior versus et cetera.",
+    "phonemes": "dˈɒktə mˈɪstə mˈɪsɪz mˈɪz pɹəfˈɛsə sˈiːnɪə ʤˈuːnɪə vˈɜːsəs ˈɛt sɪtˈɛːɹə."
+  },
+  {
+    "text": "e.g. one; i.e. two.",
+    "british": true,
+    "normalized": "for example one; that is two.",
+    "phonemes": "fɔː ɪɡzˈɑːmpᵊl wˈʌn; ðat ɪz tˈuː."
+  },
+  {
+    "text": "The CPU's results go to the UI and the HTML page.",
+    "british": true,
+    "normalized": "The CPU's results go to the UI and the HTML page.",
+    "phonemes": "ðə sˈiː pˈiː jˈuːz ɹɪzˈʌlts ɡˌQ tə ðə jˈuː ˈI and ði ˈAʧ tˈiː ˈɛm ˈɛl pˈAʤ."
+  },
+  {
+    "text": "12345678901234567890123456789012345678",
+    "british": true,
+    "normalized": "one two three four five six seven eight nine zero one two three four five six seven eight nine zero one two three four five six seven eight nine zero one two three four five six seven eight",
+    "phonemes": "wˈʌn tˈuː θɹˈiː fˈɔː fˈIv sˈɪks sˈɛvᵊn ˈAt nˈIn zˈɪəɹQ wˈʌn tˈuː θɹˈiː fˈɔː fˈIv sˈɪks sˈɛvᵊn ˈAt nˈIn zˈɪəɹQ wˈʌn tˈuː θɹˈiː fˈɔː fˈIv sˈɪks sˈɛvᵊn ˈAt nˈIn zˈɪəɹQ wˈʌn tˈuː θɹˈiː fˈɔː fˈIv sˈɪks sˈɛvᵊn ˈAt"
+  },
+  {
+    "text": "012345 and 1.00 and 0.05.",
+    "british": true,
+    "normalized": "zero one two three four five and one point zero zero and zero point zero five .",
+    "phonemes": "zˈɪəɹQ wˈʌn tˈuː θɹˈiː fˈɔː fˈIv and wˈʌn pˈYnt zˈɪəɹQ zˈɪəɹQ and zˈɪəɹQ pˈYnt zˈɪəɹQ fˈIv ."
+  },
+  {
+    "text": "35°F and 2.4% equals 7.6.",
+    "british": true,
+    "normalized": "thirty five degrees Fahrenheit and two point four percent equals seven point six .",
+    "phonemes": "θˈɜːti fˈIv dɪɡɹˈiːz fˈaɹənhIt and tˈuː pˈYnt fˈɔː pəsˈɛnt ˈiːkwᵊlz sˈɛvᵊn pˈYnt sˈɪks ."
+  },
+  {
+    "text": "123abc and 3 meters; 3mail stays as written.",
+    "british": true,
+    "normalized": "one hundred and twenty three abc and three meters; three mail stays as written.",
+    "phonemes": "wˈʌn hˈʌndɹəd and twˈɛnti θɹˈiː ˈabk and θɹˈiː mˈiːtəz; θɹˈiː mˈAl stˈAz az ɹˈɪtᵊn."
+  },
+  {
+    "text": "٣ apples and ٤٢ oranges.",
+    "british": false,
+    "normalized": "three apples and forty two oranges.",
+    "phonemes": "θɹˈi ˈæpᵊlz ænd fˈɔɹTi tˈu ˈɔɹᵊnʤᵻz."
+  },
+  {
+    "text": "The ١st weighs ٢ kg and costs $١٢.٥٠.",
+    "british": false,
+    "normalized": "The first weighs two kilograms and costs twelve dollars and fifty cents.",
+    "phonemes": "ðə fˈɜɹst wˈAz tˈu kˈɪləɡɹˌæmz ænd kˈɔsts twˈɛlv dˈɑləɹz ænd fˈɪfti sˈɛnts."
+  },
+  {
+    "text": "٣ apples and ٤٢ oranges.",
+    "british": true,
+    "normalized": "three apples and forty two oranges.",
+    "phonemes": "θɹˈiː ˈapᵊlz and fˈɔːti tˈuː ˈɒɹɪnʤɪz."
+  },
+  {
+    "text": "The ١st weighs ٢ kg and costs $١٢.٥٠.",
+    "british": true,
+    "normalized": "The first weighs two kilograms and costs twelve dollars and fifty cents.",
+    "phonemes": "ðə fˈɜːst wˈAz tˈuː kˈɪləɡɹamz and kˈɒsts twˈɛlv dˈɒləz and fˈɪfti sˈɛnts."
+  }
+]

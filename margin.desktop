@@ -1,0 +1,15 @@
+# Example desktop entry. Replace /absolute/path/to/margin in the installed copy.
+[Desktop Entry]
+Version=1.0
+Type=Application
+Name=Margin
+GenericName=Text to Audio
+Comment=Start the local audio reader and open it in your browser
+Exec="/absolute/path/to/margin/bin/margin" launch --url http://127.0.0.1:8765
+TryExec=/absolute/path/to/margin/bin/margin
+Path=/absolute/path/to/margin
+Icon=/absolute/path/to/margin/assets/margin.svg
+Terminal=false
+Categories=AudioVideo;Audio;
+Keywords=podcast;audio;TTS;text to speech;blog;Substack;Tailscale;reading;
+StartupNotify=false

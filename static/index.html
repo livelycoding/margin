@@ -1,0 +1,142 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#f6f3ec">
+  <title>Margin — A listening room for your reading</title>
+  <link rel="icon" type="image/svg+xml" sizes="any" href="/favicon.svg">
+  <link rel="stylesheet" href="/styles.css">
+  <script src="/app.js" defer></script>
+</head>
+<body>
+  <header class="site-header">
+    <a class="brand" href="/" aria-label="Margin home"><span class="brand-mark" aria-hidden="true"><i></i><i></i><i></i></span>margin<span class="brand-period">.</span></a>
+    <span class="tagline">A listening room for your reading</span>
+    <div class="engine-status" id="engine-status"><span class="status-dot"></span><span id="engine-label">Connecting to local voice…</span></div>
+  </header>
+
+  <main>
+    <div class="page-intro"><p class="eyebrow">FROM PAGE TO PLAY</p><h1>Make room<br>for a good listen.</h1><p>Turn the words you want to read into audio you can take your time with. Made right here, on your computer.</p></div>
+
+    <div class="studio-grid">
+      <section class="compose-panel" aria-labelledby="compose-heading">
+        <div class="section-heading"><span class="section-number">01</span><h2 id="compose-heading">Bring something to read</h2></div>
+        <div class="input-tabs" role="tablist" aria-label="Article source">
+          <button id="text-tab" class="input-tab active" type="button" role="tab" aria-selected="true" aria-controls="text-source">Paste text</button>
+          <button id="url-tab" class="input-tab" type="button" role="tab" aria-selected="false" aria-controls="url-source" tabindex="-1">Import a link <span aria-hidden="true">↗</span></button>
+        </div>
+        <div id="url-source" role="tabpanel" aria-labelledby="url-tab" hidden>
+          <label for="source-url">Article URL</label>
+          <div class="url-row"><input id="source-url" type="url" placeholder="https://your-favorite.substack.com/p/…" autocomplete="url"><button id="import-button" class="button button-ink" type="button">Import</button></div>
+          <p class="field-hint">Public articles only. Review the imported text below before creating audio.</p>
+        </div>
+        <form id="episode-form">
+          <div id="text-source" role="tabpanel" aria-labelledby="text-tab">
+            <div class="label-row"><label for="episode-title">A title for your listen</label><span class="optional">Optional</span></div>
+            <input id="episode-title" type="text" maxlength="180" placeholder="Something worth listening to">
+            <div class="label-row article-label"><label for="article-text">The words</label><button id="sample-button" class="text-button" type="button">Try a short sample</button></div>
+            <textarea id="article-text" maxlength="150000" placeholder="Paste a blog post, an essay, a script, or that piece you’ve been meaning to get to…" required></textarea>
+            <div class="text-meta"><span id="word-count">0 words</span><span id="reading-time">Your next listen starts here</span></div>
+          </div>
+          <div id="import-note" class="import-note" role="status" hidden></div>
+          <div class="voice-settings">
+            <div class="voice-field"><label id="voice-label" for="voice-picker-button">Voice</label><input id="voice-select" type="hidden"><button id="voice-picker-button" class="voice-picker-button" type="button" aria-haspopup="dialog" aria-controls="voice-picker" disabled><span class="voice-selection"><span id="selected-voice-name">Loading voices…</span><span id="selected-voice-details"></span></span><span class="voice-picker-action">Browse <span aria-hidden="true">↗</span></span></button></div>
+            <div><label for="pace-select">Reading pace</label><select id="pace-select"><option value="0.85">Unhurried · 0.85×</option><option value="0.95" selected>Natural · 0.95×</option><option value="1.15">Brisk · 1.15×</option><option value="1.3">Quick · 1.3×</option></select></div>
+          </div>
+          <div class="voice-preview-controls">
+            <button id="voice-preview-button" class="voice-preview-button" type="button" aria-label="Preview selected voice" aria-describedby="voice-preview-status" disabled><span id="voice-preview-icon" aria-hidden="true"><svg class="playback-icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M8 5l12 7-12 7z"/></svg></span><span id="voice-preview-label">Preview voice</span></button>
+            <p id="voice-preview-status" class="voice-preview-status" role="status" aria-live="polite" aria-atomic="true">Short sample · natural pace</p>
+          </div>
+          <audio id="voice-preview-audio" preload="none" hidden></audio>
+          <p id="form-error" class="error-message" role="alert" hidden></p>
+          <button id="generate-button" class="button button-primary generate-button" type="submit" disabled><span>Create my audio</span><span aria-hidden="true">↗</span></button>
+          <p class="local-note"><span aria-hidden="true">◌</span> Speech is generated locally. Longer articles take a little time.</p>
+        </form>
+        <div class="notification-option"><label class="checkbox-label"><input id="notifications-toggle" type="checkbox"><span>Also notify me through this browser</span></label><p id="notification-help">Browser notifications work while this page is open. You can leave it in the background.</p><p id="desktop-notification-help" hidden></p></div>
+        <div class="engine-message" id="engine-message" hidden></div>
+      </section>
+
+      <section class="listening-panel" aria-labelledby="listen-heading">
+        <div class="section-heading"><span class="section-number">02</span><h2 id="listen-heading">Settle in &amp; listen</h2><span class="episode-count" id="episode-count">0 saved</span></div>
+        <div class="library" id="library" aria-label="Your audio library"><div class="library-empty">Your listening shelf is waiting.</div></div>
+        <div class="player-empty" id="player-empty">
+          <div class="empty-art" aria-hidden="true"><div class="record"><div class="record-label"><span>m.</span></div></div><div class="record-shadow"></div><div class="floating-note">WORDS, WITH A VOICE</div></div>
+          <h3>A different way to read.</h3><p>Your audio and an interactive transcript will live here. Press play, follow along, and jump to any sentence.</p>
+          <div class="empty-features"><span><i aria-hidden="true">♫</i> Local audio</span><span><i aria-hidden="true">≡</i> Clickable transcript</span><span><i aria-hidden="true">↓</i> Yours to keep</span></div>
+        </div>
+
+        <article class="episode-player" id="episode-player" hidden>
+          <div class="player-heading">
+            <p class="eyebrow" id="player-kicker">YOUR LISTEN</p>
+            <div class="player-title-row"><h3 id="player-title"></h3><button id="rename-button" class="text-button rename-button" type="button" aria-label="Rename this listen" aria-controls="rename-form" aria-expanded="false" hidden>Rename</button></div>
+            <form id="rename-form" class="rename-form" novalidate hidden>
+              <label for="rename-title">Title for this listen</label>
+              <input id="rename-title" type="text" maxlength="200" required aria-describedby="rename-error" autocomplete="off">
+              <p id="rename-error" class="error-message" role="alert" hidden></p>
+              <div class="rename-actions"><button id="rename-save" class="button button-ink button-small" type="submit">Save title</button><button id="rename-cancel" class="button button-small" type="button">Cancel</button></div>
+            </form>
+            <p class="player-meta" id="player-meta"></p>
+            <button id="recast-button" class="text-button recast-button" type="button" aria-haspopup="dialog" aria-controls="voice-picker" hidden>Recast with another voice</button>
+          </div>
+          <div class="job-state" id="job-state" hidden>
+            <div class="job-status-row"><span id="job-status"></span><span id="job-percent"></span></div>
+            <progress id="job-progress" max="100" value="0" aria-labelledby="job-status"></progress>
+            <p class="job-eta" id="job-eta" hidden></p>
+            <p id="job-message"></p>
+            <p id="saved-text-hint" hidden>Your text is saved. You can edit it and create a new listen.</p>
+            <div class="job-actions">
+              <button id="cancel-button" class="text-button" type="button">Cancel generation</button>
+              <button id="edit-episode-button" class="button button-ink button-small" type="button" aria-controls="episode-form" hidden>Edit passage</button>
+              <button id="retry-button" class="button button-small" type="button" hidden>Retry unchanged</button>
+            </div>
+          </div>
+          <div id="ready-player" hidden>
+            <audio id="audio" preload="metadata"></audio>
+            <div class="audio-controls"><button id="back-button" class="skip-button" type="button" aria-label="Rewind 15 seconds"><svg viewBox="0 0 32 32" aria-hidden="true" focusable="false" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="M8.2218 8.2218A11 11 0 1 1 5 16M8.2218 3.2218v5h5"/><text x="16" y="16" text-anchor="middle" dominant-baseline="central">15</text></svg></button><button id="play-button" class="play-button" type="button" aria-label="Play"><span id="play-icon" aria-hidden="true"><svg class="playback-icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M8 5l12 7-12 7z"/></svg></span></button><button id="forward-button" class="skip-button" type="button" aria-label="Forward 15 seconds"><svg viewBox="0 0 32 32" aria-hidden="true" focusable="false" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><g transform="translate(32 0) scale(-1 1)"><path d="M8.2218 8.2218A11 11 0 1 1 5 16M8.2218 3.2218v5h5"/></g><text x="16" y="16" text-anchor="middle" dominant-baseline="central">15</text></svg></button>
+            <div class="playback-speed">
+              <div class="playback-speed-heading"><label for="playback-rate">Playback speed</label><output id="playback-rate-value" for="playback-rate" aria-live="off">1×</output></div>
+              <div class="playback-speed-slider">
+                <input id="playback-rate" type="range" min="0" max="11" step="1" value="1" aria-valuetext="1× speed">
+                <div id="playback-rate-notches" class="playback-speed-notches" aria-hidden="true"></div>
+              </div>
+            </div>
+            </div>
+            <input id="audio-seek" class="audio-seek" aria-label="Playback position" type="range" min="0" max="1" step="0.01" value="0"><div class="audio-times"><span id="current-time">0:00</span><span id="duration-time">0:00</span></div>
+            <div class="download-row"><span>Keep a copy</span><a id="download-audio" download>Audio <span aria-hidden="true">↓</span></a><a id="download-srt" download>SRT <span aria-hidden="true">↓</span></a><a id="download-text" download>Text <span aria-hidden="true">↓</span></a></div>
+            <div class="transcript-header"><h4>Follow the words</h4><label class="follow-label"><input id="auto-follow" type="checkbox" checked>Auto-follow</label></div>
+            <div class="transcript-search"><span aria-hidden="true">⌕</span><input id="transcript-search" type="search" placeholder="Find a phrase in this listen" aria-label="Search transcript"></div>
+            <div id="transcript" class="transcript" aria-label="Clickable transcript"></div>
+            <p class="transcript-hint">Click any sentence to jump to that moment.</p>
+          </div>
+          <div class="episode-footer"><a id="source-link" target="_blank" rel="noopener noreferrer" hidden>Original article ↗</a><button id="delete-button" class="text-button delete-button" type="button">Delete this listen</button></div>
+        </article>
+      </section>
+    </div>
+  </main>
+  <footer class="site-footer"><span>Less screen time. More good words.</span><span>Made to stay on your machine <span aria-hidden="true">↙</span></span></footer>
+  <dialog id="voice-picker" class="voice-picker" aria-labelledby="voice-picker-title" aria-describedby="voice-picker-description">
+    <div class="voice-picker-header"><div><p class="eyebrow">FIND YOUR NARRATOR</p><h2 id="voice-picker-title">A voice for every listen.</h2></div><button id="voice-picker-close" class="voice-picker-close" type="button" aria-label="Close voice browser">×</button></div>
+    <p id="voice-picker-description" class="voice-picker-description">Listen to a sample, choose a voice, and save your favorites.</p>
+    <div id="recast-context" class="recast-context" hidden><strong id="recast-title"></strong><span id="recast-details"></span></div>
+    <div class="voice-picker-tools">
+      <label class="visually-hidden" for="voice-search">Search voices</label><input id="voice-search" type="search" placeholder="Search names, accents, or tone…" autocomplete="off" autofocus>
+      <div class="voice-filter-row"><div class="voice-filter" role="group" aria-label="Filter by accent"><span class="voice-filter-label" aria-hidden="true">Accent</span><button type="button" data-voice-accent="all" aria-pressed="true">All</button><button type="button" data-voice-accent="American" aria-pressed="false">American</button><button type="button" data-voice-accent="British" aria-pressed="false">British</button></div><div class="voice-filter" role="group" aria-label="Filter by voice"><span class="voice-filter-label" aria-hidden="true">Voice</span><button type="button" data-voice-gender="all" aria-pressed="true">All</button><button type="button" data-voice-gender="female" aria-pressed="false">Female</button><button type="button" data-voice-gender="male" aria-pressed="false">Male</button></div></div>
+      <div class="voice-results-heading"><span id="voice-result-count" role="status" aria-live="polite"></span><button id="voice-favorites-filter" class="voice-favorites-filter" type="button" aria-pressed="false"><span aria-hidden="true">☆</span> Favorites</button></div>
+    </div>
+    <div class="voice-picker-results"><div id="voice-grid" class="voice-grid" aria-label="Available voices"></div><div id="voice-empty" class="voice-empty" hidden><p id="voice-empty-message"></p><button id="voice-reset-filters" class="text-button" type="button">Show all voices</button></div></div>
+    <p id="recast-error" class="error-message recast-error" role="alert" hidden></p>
+    <div class="voice-picker-footer"><div class="voice-picker-summary"><span id="voice-footer-label" class="voice-footer-label">YOUR NARRATOR</span><strong id="voice-picker-selected"></strong></div><div class="voice-picker-actions"><button id="voice-picker-cancel" class="button" type="button" hidden>Cancel</button><button id="voice-picker-done" class="button button-primary" type="button">Done</button></div></div>
+    <p id="voice-picker-status" class="visually-hidden" role="status" aria-live="polite" aria-atomic="true"></p>
+  </dialog>
+  <dialog id="restore-dialog" class="restore-dialog" aria-labelledby="restore-heading" aria-describedby="restore-description">
+    <h2 id="restore-heading">Replace the current draft?</h2>
+    <p id="restore-description">Your current title, words, and article link will be replaced with the saved version of <strong id="restore-title"></strong>. Any unsaved edits in the editor will be lost.</p>
+    <form method="dialog" class="job-actions">
+      <button class="button button-small" value="cancel" autofocus>Keep editing</button>
+      <button class="button button-ink button-small" value="restore">Replace draft</button>
+    </form>
+  </dialog>
+  <div id="toast-container" class="toast-container" aria-live="polite" aria-atomic="false"></div>
+</body>
+</html>
