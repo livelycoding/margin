@@ -8,14 +8,15 @@ Margin is one service: a Go application serves the web UI/API, manages a SQLite 
 
 ## Run with Docker
 
-Install Docker with the Compose plugin, then run these commands from the project directory:
+Install Docker with the Compose plugin. From a source checkout or a folder
+containing the downloaded release's `compose.yaml`, run:
 
 ```bash
-docker compose up --build -d
+docker compose up -d
 docker compose logs -f margin
 ```
 
-Open **http://localhost:8765** once startup finishes. The build compiles Margin and installs the native ONNX Runtime library. The first start downloads approximately 354 MB of Kokoro model and voice files, checks their pinned SHA256 hashes, and saves them in the persistent model cache. Later starts verify and reuse those files. Pronunciation assets and voice previews are included in the image.
+Open **http://localhost:8765** once startup finishes. Compose downloads the prebuilt image, which includes Margin and the native ONNX Runtime library. The first start downloads approximately 354 MB of Kokoro model and voice files, checks their pinned SHA256 hashes, and saves them in the persistent model cache. Later starts verify and reuse those files. Pronunciation assets and voice previews are included in the image.
 
 Use Linux containers. Linux amd64 is the tested platform; an arm64 download path is provided but has not been validated end to end. Docker does not require Go, a C compiler, or Python on the host.
 
@@ -30,9 +31,20 @@ docker compose down
 
 The container runs as a non-root user with a read-only filesystem apart from `/var/lib/margin` for the library, `/var/cache/margin` for the model cache, and `/tmp` for temporary files. Replacing or rebuilding the image leaves the volumes intact. A new Docker deployment starts with an empty library; it does not automatically import a native installation's `data/` directory.
 
+To build from source, run this from a checkout:
+
+```bash
+docker compose -f compose.build.yaml up --build -d
+```
+
+Use `-f compose.build.yaml` for subsequent Compose commands for that installation,
+including `logs`, `restart`, `down`, and `up`.
+
 ### Configuration
 
-Defaults work without a configuration file. To change them, copy the example and edit `.env`:
+Defaults work without a configuration file. To change them, create or edit `.env`
+beside `compose.yaml`. From a source checkout, you can copy the example as a
+starting point:
 
 ```bash
 cp .env.example .env
@@ -48,15 +60,19 @@ cp .env.example .env
 Apply changes with `docker compose up -d`. To try Docker alongside an existing service on port 8765:
 
 ```bash
-MARGIN_PORT=8767 docker compose up --build -d
+MARGIN_PORT=8767 docker compose up -d
 ```
 
 Open **http://localhost:8767**. Save `MARGIN_PORT=8767` in `.env` if subsequent Compose commands should use that setting. The native service and Docker library remain independent.
 
-`compose.yaml` builds from source and defaults to `margin:local`. The standalone
-`compose.image.yaml` uses `ghcr.io/livelycoding/margin:latest` without a build step.
-The first registry release is still pending. In the meantime, GitHub Actions
-provides a downloadable validation image with its own Compose file and `.env`.
+`compose.yaml` runs a prebuilt image; the source checkout defaults to
+`ghcr.io/livelycoding/margin:latest`. `compose.build.yaml` builds from source and
+names its image `margin:local`.
+Published releases include a downloadable `compose.yaml` that selects that
+release's image version. To update an installation made from a release download,
+replace its `compose.yaml` with the new release's file in the same folder, then
+run `docker compose pull` and `docker compose up -d`. GitHub Actions also provides
+a downloadable validation image with its own Compose file and `.env`.
 See [container validation and releases](container-releases.md) for instructions.
 
 ### Access over your tailnet

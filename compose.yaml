@@ -1,8 +1,8 @@
+# Run the prebuilt image: docker compose up -d
 services:
   margin:
-    image: ${MARGIN_IMAGE:-margin:local}
-    build:
-      context: .
+    image: ${MARGIN_IMAGE:-ghcr.io/livelycoding/margin:latest}
+    platform: linux/amd64
     init: true
     restart: unless-stopped
     ports:

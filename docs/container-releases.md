@@ -1,9 +1,9 @@
 # Container validation and releases
 
 Margin's container workflow tests and builds Linux amd64 images on pushes to
-`main`, pull requests, and manual runs. Only publishing a GitHub release uploads
-an image to GitHub Container Registry (GHCR). The first registry release is still
-pending; validation builds can be tested without publishing one.
+`main`, pull requests, and manual runs. Publishing a GitHub release uploads the
+tested image to GitHub Container Registry (GHCR) and attaches a Compose download.
+Validation builds can be tested before publication.
 
 ## Try a validation build on another machine
 
@@ -72,13 +72,21 @@ Prerelease versions such as `v0.1.0-rc.1`, or releases marked as prereleases in
 GitHub, do not update `:latest`. Tags must be semantic versions without `+build`
 metadata. A manual workflow run creates a validation bundle without publishing.
 
+After the image upload succeeds, the workflow attaches `compose.yaml` to the
+release. Its default image is pinned to that release's version, including for
+prereleases. The README's download link selects the latest stable release.
+
 The publishing job uses GitHub's temporary `GITHUB_TOKEN` with package write
-permission; no personal token or Docker Hub account is needed. After the first
+permission for the image and repository contents write permission for the release
+attachment; no personal token or Docker Hub account is needed. After the first
 publication, set the package's visibility to **Public** in its GitHub package
 settings and verify an anonymous pull before documenting it as available.
 
-For registry installations, download `compose.image.yaml` as `compose.yaml` into
-an empty folder, then run `docker compose up -d`. It preserves the same library
-and cache volumes as the validation setup. If converting a validation folder,
-remove its `MARGIN_IMAGE=margin:validation` override first, then run
-`docker compose pull` and `docker compose up -d`.
+For registry installations, download the release's `compose.yaml` into an empty
+folder, then run `docker compose up -d`. To update, replace that file with the new
+release's `compose.yaml` in the same folder, then run `docker compose pull` and
+`docker compose up -d`. The library and cache volumes are preserved.
+
+If converting a validation folder, replace its `compose.yaml` with the release
+download and remove the `MARGIN_IMAGE=margin:validation` override from `.env`,
+then run `docker compose pull` and `docker compose up -d` in that same folder.

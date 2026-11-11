@@ -95,7 +95,7 @@ jobs:
         run: |
           mkdir -p validation-bundle
           docker image save margin:validation | gzip -1 > validation-bundle/margin-image.tar.gz
-          cp compose.image.yaml validation-bundle/compose.yaml
+          cp compose.yaml validation-bundle/compose.yaml
           printf 'MARGIN_IMAGE=margin:validation\n' > validation-bundle/.env
           printf '%s\n' "$SOURCE_REVISION" > validation-bundle/COMMIT
           cat > validation-bundle/README.txt <<'EOF'
@@ -139,7 +139,7 @@ jobs:
     runs-on: ubuntu-24.04
     timeout-minutes: 10
     permissions:
-      contents: read
+      contents: write
       packages: write
     steps:
       - name: Download this run's tested image
@@ -172,6 +172,29 @@ jobs:
             docker image tag margin:validation "$IMAGE:latest"
             docker image push "$IMAGE:latest"
           fi
+
+      - name: Prepare Compose download for this release
+        env:
+          IMAGE: ${{ needs.validate.outputs.image }}
+          VERSION: ${{ needs.validate.outputs.version }}
+        shell: python
+        run: |
+          import os
+          from pathlib import Path
+
+          compose = Path("validation-bundle/compose.yaml").read_text()
+          default = "${MARGIN_IMAGE:-ghcr.io/livelycoding/margin:latest}"
+          if compose.count(default) != 1:
+              raise SystemExit("Expected exactly one default image in the tested Compose file.")
+          pinned = "${MARGIN_IMAGE:-" + os.environ["IMAGE"] + ":" + os.environ["VERSION"] + "}"
+          Path("release-assets").mkdir(exist_ok=True)
+          Path("release-assets/compose.yaml").write_text(compose.replace(default, pinned))
+
+      - name: Attach Compose download to the release
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          RELEASE_TAG: ${{ github.event.release.tag_name }}
+        run: gh release upload "$RELEASE_TAG" release-assets/compose.yaml --repo "$GITHUB_REPOSITORY" --clobber
 
       - name: Sign out
         if: always()

@@ -9,7 +9,7 @@ project="margin-smoke-$(date +%s)-$$"
 
 compose() {
   docker compose --project-name "$project" --project-directory "$work" \
-    --env-file "$work/.env" -f "$repo/compose.image.yaml" "$@"
+    --env-file "$work/.env" -f "$repo/compose.yaml" "$@"
 }
 
 cleanup() {

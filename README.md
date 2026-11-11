@@ -10,23 +10,23 @@ It is easy to run locally through docker, and it persists a library of your gene
 
 It supports all of Kokoro' 28 English-language narrators, simultaneous listening and async generation queuing with completion notifications and completion estimates, and includes a basic podcast client with playback, automatic "continue later" support, and speed controls.
 
-![Margin overview](docs/images/overview.png)
-
 ## Local first execution and setup
 
-To use one of our pre-built images:
+Requires Docker with Compose on a 64-bit Intel/AMD machine. On Windows, use Docker Desktop with Linux containers.
 
-[IMAGE HERE]
+Download **[compose.yaml](https://github.com/livelycoding/margin/releases/latest/download/compose.yaml)** into an empty folder, open a terminal there, and run:
 
-To build from scratch:
+```bash
+docker compose up -d
+```
 
-   ```bash
-   docker compose up --build -d
-   ```
+Open **[localhost:8765](http://localhost:8765)** after startup finishes. The first start downloads about **350 MB** of speech models. Models and your recording library persist in Docker volumes.
 
-During first run, it'll pull about 350Mb of Kokoro model weights on first startup, which it will cache and use locally for ongoing inference.
+To build from a source checkout:
 
-Default endpoint is **[localhost:8765](http://localhost:8765)**, which you can reconfigure by changing the .env. An example .env file has been provided, which includes light documentation on running this service over a tailnet.
+```bash
+docker compose -f compose.build.yaml up --build -d
+```
 
 ## How it works
 

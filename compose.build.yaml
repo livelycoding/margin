@@ -1,8 +1,9 @@
-# Download this file as compose.yaml for a prebuilt-image installation.
+# Build from source: docker compose -f compose.build.yaml up --build -d
 services:
   margin:
-    image: ${MARGIN_IMAGE:-ghcr.io/livelycoding/margin:latest}
-    platform: linux/amd64
+    image: ${MARGIN_IMAGE:-margin:local}
+    build:
+      context: .
     init: true
     restart: unless-stopped
     ports:
