@@ -43,7 +43,7 @@ cp .env.example .env
 | `MARGIN_PORT` | `8765` | Published host port. The container's internal port stays 8765. |
 | `MARGIN_BIND_ADDRESS` | `127.0.0.1` | Host interface to publish on. Keep loopback for local access or a host reverse proxy. |
 | `MARGIN_PUBLIC_ORIGINS` | Empty | Additional exact browser origins, separated by spaces or commas, such as `https://your-host.your-tailnet.ts.net:8766`. Do not include a path or trailing slash. |
-| `MARGIN_IMAGE` | `margin:local` | Image name used by Compose. |
+| `MARGIN_IMAGE` | Depends on Compose file | Override the local-build or prebuilt image name. |
 
 Apply changes with `docker compose up -d`. To try Docker alongside an existing service on port 8765:
 
@@ -53,13 +53,11 @@ MARGIN_PORT=8767 docker compose up --build -d
 
 Open **http://localhost:8767**. Save `MARGIN_PORT=8767` in `.env` if subsequent Compose commands should use that setting. The native service and Docker library remain independent.
 
-No registry image is published as part of this source tree. Once a compatible image is available, the same Compose file supports pulling it:
-
-```bash
-MARGIN_IMAGE=ghcr.io/OWNER/margin:TAG docker compose up -d --no-build --pull always
-```
-
-`OWNER` and `TAG` are placeholders. Save the chosen `MARGIN_IMAGE` in `.env` for subsequent commands.
+`compose.yaml` builds from source and defaults to `margin:local`. The standalone
+`compose.image.yaml` uses `ghcr.io/livelycoding/margin:latest` without a build step.
+The first registry release is still pending. In the meantime, GitHub Actions
+provides a downloadable validation image with its own Compose file and `.env`.
+See [container validation and releases](container-releases.md) for instructions.
 
 ### Access over your tailnet
 

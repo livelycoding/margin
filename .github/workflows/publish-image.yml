@@ -1,0 +1,178 @@
+name: Container image
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+  workflow_dispatch:
+  release:
+    types: [published]
+
+permissions:
+  contents: read
+
+concurrency:
+  group: container-${{ github.event_name }}-${{ github.ref }}
+  cancel-in-progress: ${{ github.event_name == 'pull_request' }}
+
+jobs:
+  validate:
+    name: Test and build Linux amd64
+    runs-on: ubuntu-24.04
+    timeout-minutes: 30
+    outputs:
+      image: ${{ steps.metadata.outputs.image }}
+      version: ${{ steps.metadata.outputs.version }}
+      latest: ${{ steps.metadata.outputs.latest }}
+    steps:
+      - name: Check out source
+        uses: actions/checkout@d23441a48e516b6c34aea4fa41551a30e30af803 # v6
+        with:
+          persist-credentials: false
+
+      - name: Set up Go
+        uses: actions/setup-go@924ae3a1cded613372ab5595356fb5720e22ba16 # v6
+        with:
+          go-version: '1.27.3'
+          cache: true
+
+      - name: Test Go and check JavaScript
+        env:
+          CGO_ENABLED: '1'
+        run: |
+          go test -race ./...
+          node --check static/app.js
+
+      - name: Determine image metadata
+        id: metadata
+        shell: python
+        run: |
+          import json
+          import os
+          import re
+
+          image = "ghcr.io/" + os.environ["GITHUB_REPOSITORY"].lower()
+          version = "sha-" + os.environ["GITHUB_SHA"][:12]
+          latest = False
+          if os.environ["GITHUB_EVENT_NAME"] == "release":
+              with open(os.environ["GITHUB_EVENT_PATH"], encoding="utf-8") as event_file:
+                  release = json.load(event_file)["release"]
+              version = release["tag_name"].removeprefix("v")
+              match = re.fullmatch(
+                  r"(0|[1-9][0-9]*)\.(0|[1-9][0-9]*)\.(0|[1-9][0-9]*)"
+                  r"(?:-([0-9A-Za-z-]+(?:\.[0-9A-Za-z-]+)*))?",
+                  version,
+              )
+              if not match or len(version) > 128:
+                  raise SystemExit("Use a release tag such as v0.1.0 or v0.1.0-rc.1 (no build metadata).")
+              prerelease = match.group(4)
+              if prerelease and any(part.isdigit() and len(part) > 1 and part[0] == "0" for part in prerelease.split(".")):
+                  raise SystemExit("Numeric prerelease identifiers cannot have leading zeroes.")
+              latest = not release["prerelease"] and prerelease is None
+          with open(os.environ["GITHUB_OUTPUT"], "a", encoding="utf-8") as output:
+              output.write(f"image={image}\nversion={version}\nlatest={str(latest).lower()}\n")
+
+      - name: Build the image once
+        env:
+          IMAGE_VERSION: ${{ steps.metadata.outputs.version }}
+          SOURCE_URL: ${{ github.server_url }}/${{ github.repository }}
+          SOURCE_REVISION: ${{ github.sha }}
+        run: |
+          docker build --platform linux/amd64 \
+            --tag margin:validation \
+            --label "org.opencontainers.image.source=$SOURCE_URL" \
+            --label "org.opencontainers.image.revision=$SOURCE_REVISION" \
+            --label "org.opencontainers.image.version=$IMAGE_VERSION" \
+            .
+
+      - name: Verify generation and persistence in a fresh container
+        run: bash scripts/smoke-container.sh margin:validation
+
+      - name: Package the tested image for another machine
+        env:
+          SOURCE_REVISION: ${{ github.sha }}
+        run: |
+          mkdir -p validation-bundle
+          docker image save margin:validation | gzip -1 > validation-bundle/margin-image.tar.gz
+          cp compose.image.yaml validation-bundle/compose.yaml
+          printf 'MARGIN_IMAGE=margin:validation\n' > validation-bundle/.env
+          printf '%s\n' "$SOURCE_REVISION" > validation-bundle/COMMIT
+          cat > validation-bundle/README.txt <<'EOF'
+          Margin validation build — Linux amd64
+
+          Requires Docker Engine with Compose, or Docker Desktop using Linux containers.
+          Extract this entire bundle, including .env, into its own folder.
+          Run these commands in that folder (PowerShell, Command Prompt, or a Linux shell):
+
+            docker load --input margin-image.tar.gz
+            docker compose up -d --pull never
+
+          Open http://localhost:8765 after the initial model download completes.
+          Check startup with: docker compose logs -f
+          Generate a short passage, play it, and click its transcript to seek.
+          Run docker compose restart and confirm the recording still plays.
+          To stop: docker compose down
+          The named volumes retain recordings and model downloads. Adding --volumes
+          to docker compose down permanently deletes this validation instance's data.
+
+          This is a validation artifact, not a published registry image.
+          COMMIT identifies its source revision; SHA256SUMS lists file checksums.
+          EOF
+          cd validation-bundle
+          sha256sum margin-image.tar.gz compose.yaml .env COMMIT README.txt > SHA256SUMS
+
+      - name: Upload validation bundle
+        uses: actions/upload-artifact@cf430e030ddbb5b0abf93d22962f4752f3646cd9 # v7
+        with:
+          name: margin-validation-linux-amd64
+          path: validation-bundle/
+          include-hidden-files: true
+          if-no-files-found: error
+          compression-level: 0
+          retention-days: 7
+
+  publish:
+    name: Publish tested release image
+    if: github.event_name == 'release'
+    needs: validate
+    runs-on: ubuntu-24.04
+    timeout-minutes: 10
+    permissions:
+      contents: read
+      packages: write
+    steps:
+      - name: Download this run's tested image
+        uses: actions/download-artifact@9000827ccba6bdab643e8b6fd33ac0654aef8333 # v8
+        with:
+          name: margin-validation-linux-amd64
+          path: validation-bundle
+
+      - name: Verify and load the image
+        working-directory: validation-bundle
+        run: |
+          sha256sum --check SHA256SUMS
+          docker image load --input margin-image.tar.gz
+
+      - name: Sign in to GitHub Container Registry
+        env:
+          GHCR_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          GHCR_USER: ${{ github.actor }}
+        run: printf '%s' "$GHCR_TOKEN" | docker login ghcr.io --username "$GHCR_USER" --password-stdin
+
+      - name: Publish the version and, for stable releases, latest
+        env:
+          IMAGE: ${{ needs.validate.outputs.image }}
+          VERSION: ${{ needs.validate.outputs.version }}
+          UPDATE_LATEST: ${{ needs.validate.outputs.latest }}
+        run: |
+          docker image tag margin:validation "$IMAGE:$VERSION"
+          docker image push "$IMAGE:$VERSION"
+          if [ "$UPDATE_LATEST" = true ]; then
+            docker image tag margin:validation "$IMAGE:latest"
+            docker image push "$IMAGE:latest"
+          fi
+
+      - name: Sign out
+        if: always()
+        run: docker logout ghcr.io
